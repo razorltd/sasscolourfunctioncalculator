@@ -1,0 +1,16 @@
+{
+  "name": "sass-color-function-calculator",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "connect-livereload": "~0.4.0",
+    "grunt-sass": "latest",
+    "grunt-contrib-watch": "0.4.3",
+    "grunt-open": "~0.2.0",
+    "matchdep": "~0.1.1"
+  },
+  "engines": {
+    "node": "~0.8.0"
+  }
+}
