@@ -1,3 +1,5 @@
+// Two intial colours and a breakdown of their HSL values
+
 $baseColor: #7a21c5;
 $baseHue: hue($baseColor);
 $baseSat: saturation($baseColor);
@@ -20,6 +22,9 @@ $targetLight: lightness($targetColor);
   lightness: $targetLight;
 }
 
+
+// Work out the adjustments
+
 $hueAdjustment: $targetHue - $baseHue;
 $satAdjustment: $baseSat - $targetSat;
 $lightAdjustment: $targetLight - $baseLight;
@@ -30,7 +35,10 @@ $lightAdjustment: $targetLight - $baseLight;
   lightAdjust: $lightAdjustment;
 }
 
-$newColor: #7a21c5;
+
+// Apply the adjustments to another instance of the base color
+
+$newColor: #7a21c5;  // Should be same as $baseColor - not sure how variables persist in sass so redeclaring manually
 $newColor: adjust-hue($newColor, $hueAdjustment);
 $newColor: desaturate($newColor, $satAdjustment);
 $newColor: lighten($newColor, $lightAdjustment);
