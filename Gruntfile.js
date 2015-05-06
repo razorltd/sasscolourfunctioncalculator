@@ -9,7 +9,6 @@ module.exports = function(grunt) {
 
   // Load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.loadNpmTasks('assemble');
 
   var path = require('path');
 
@@ -25,6 +24,10 @@ module.exports = function(grunt) {
       sass: {
         files: ['styles/**/*.scss'],
         tasks: ['sass']
+      },
+      js : {
+        files: ['js/**/*.js'],
+        tasks: []
       }
     },
 
@@ -38,8 +41,7 @@ module.exports = function(grunt) {
           middleware: function (connect) {
             return [
               require('connect-livereload')(), // <--- here
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'dist')
+              mountFolder(connect, '/')
             ];
           }
         }
@@ -68,7 +70,7 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', function (target) {
     grunt.task.run([
       'sass',
-      'connect:livereload',
+      // 'connect:livereload',
       'open',
       'watch',
     ]);
