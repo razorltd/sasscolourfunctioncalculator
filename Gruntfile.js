@@ -26,9 +26,9 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       js : {
-        files: ['js/**/*.js'],
+        files: ['js/**/*.js', 'index.html'],
         tasks: []
-      }
+      },
     },
 
     connect: {
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
           middleware: function (connect) {
             return [
               require('connect-livereload')(), // <--- here
-              mountFolder(connect, '/')
+              mountFolder(connect, './')
             ];
           }
         }
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', function (target) {
     grunt.task.run([
       'sass',
-      // 'connect:livereload',
+      'connect:livereload',
       'open',
       'watch',
     ]);
