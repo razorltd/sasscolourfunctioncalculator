@@ -104,13 +104,18 @@ footer {
     footer svg path, footer svg polygon {
       fill: white; }
 
-.result {
-  font-family: "Monaco", Courier, monospace;
-  clear: both;
-  text-align: center;
+.result-container {
+  transform: skewX(-7.5deg);
   width: 90%;
   margin: 0 auto;
-  background: black;
+  background: #303030; }
+
+.result {
+  font-family: "Monaco", Courier, monospace;
+  transform: skewX(7.5deg);
+  clear: both;
+  text-align: center;
+  width: 100%;
   color: white;
   font-size: 1em;
   padding: 1em 0;

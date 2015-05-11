@@ -145,18 +145,23 @@ footer {
 	}
 }
 
-.result {
-	font-family: $monospace;
-	clear: both;
-	text-align: center;
+.result-container {
+	transform: skewX(-7.5deg);
 	width: 90%;
 	margin: 0 auto;
-	background: black;
+	background: $rj-black;
+}
+
+.result {
+	font-family: $monospace;
+	transform: skewX(7.5deg);
+	clear: both;
+	text-align: center;
+	width: 100%;
 	color: white;
 	font-size: 1em;
 	padding: 1em 0;
 	margin-top: 3em;
 	word-wrap: break-word;
 	line-height: 2;
-
 }
