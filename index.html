@@ -21,14 +21,14 @@
 
 		<main class="wrapper" ng-controller="ScfcController">
 			<section class="colours-container">
-				<div style="background-color:{{scfc.colorA}}">
+				<div style="background:{{scfc.colorA}}">
 					<div>
 						<label>Original Colour</label>
 						<input type="text" ng-model="scfc.colorA" ng-model-options="{ getterSetter: true }">
 					</div>
 				</div>
 				
-				<div style="background-color:{{scfc.colorB}}">
+				<div style="background:{{scfc.colorB}}">
 					<div>
 						<label>Target Colour</label>
 						<input type="text" ng-model="scfc.colorB" ng-model-options="{ getterSetter: true }">
@@ -36,16 +36,37 @@
 				</div>
 			</section>
 
-			<pre ng-bind="scfc.adjustmentString()"></pre>
+			<pre class="result" ng-bind="scfc.adjustmentString()" onfocus="this.select()"></pre>
 
 		</main>
 
 
 		<footer>
 			<p>
-				Created by <address><a href="http://razorjam.co.uk">Razor Jam</a></address>
+				Created by <address><a href="http://razorjam.co.uk">
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="341.81px" height="49.11px" viewBox="0 0 341.81 49.11" preserveAspectRatio="xMinYMid meet">
+						<g>
+							<path d="M27.74,48.7L16.75,27.27H5.15V48.7H0V0.41h18.52c8.41,0,14.31,5.09,14.31,13.43c0,7.05-4.28,11.67-10.51,12.96L33.78,48.7
+										H27.74z M18.04,5.02H5.15v17.7h12.89c5.63,0,9.63-2.92,9.63-8.82C27.67,8,23.67,5.02,18.04,5.02z"></path>
+							<path d="M186.24,48.7l-10.99-21.44h-11.6V48.7h-5.15V0.41h18.52c8.41,0,14.31,5.09,14.31,13.43c0,7.05-4.28,11.67-10.51,12.96
+										l11.46,21.91H186.24z M176.54,5.02h-12.89v17.7h12.89c5.63,0,9.63-2.92,9.63-8.82C186.17,8,182.17,5.02,176.54,5.02z"></path>
+							<path d="M82.72,48.7v-4.88l24.15-38.8h-23.2V0.41h29.03v4.34L88.35,44.09h24.35v4.61H82.72z"></path>
+							<path d="M147.58,44.09c-3.26,3.26-7.53,5.02-12.35,5.02c-4.82,0-9.09-1.76-12.34-5.02c-4.55-4.54-4.55-9.29-4.55-19.54
+										s0-14.99,4.55-19.54C126.15,1.76,130.42,0,135.24,0c4.81,0,9.09,1.76,12.35,5.02c4.54,4.54,4.54,9.29,4.54,19.54
+										S152.12,39.55,147.58,44.09z M143.58,8.07c-2.1-2.17-5.15-3.46-8.34-3.46c-3.19,0-6.24,1.29-8.34,3.46
+										c-3.05,3.12-3.39,6.38-3.39,16.48s0.34,13.36,3.39,16.48c2.1,2.17,5.15,3.46,8.34,3.46c3.19,0,6.24-1.29,8.34-3.46
+										c3.06-3.12,3.39-6.37,3.39-16.48S146.63,11.19,143.58,8.07z"></path>
+							<path d="M231.93,49.11c-4.61,0-8.07-1.36-11.06-4.34l3.46-3.46c1.76,1.76,3.59,3.18,7.59,3.18c6.31,0,9.9-4,9.9-11.12V0.41h5.16
+										v33.64C246.99,43.35,240.75,49.11,231.93,49.11z"></path>
+							<path d="M336.65,48.7v-38.7l-12.69,17.26h-5.53l-12.84-17.26v38.7h-5.15V0.41h4.15l16.74,21.9l16.33-21.9h4.16V48.7H336.65z"></path>
+							<polygon points="42.81,24.56 76.6,5.79 76.6,0.5 36.7,22.35 36.7,26.69 76.6,48.67 76.6,43.19"></polygon>
+							<polygon points="287.41,24.56 253.62,5.79 253.62,0.5 293.52,22.35 293.52,26.69 253.62,48.67 253.62,43.19"></polygon>
+						</g>
+
+					</svg>
+				</a></address>
 			</p>
-			<p>Using <a href="https://github.com/bgrins/TinyColor">tinycolor.js</a> and work by <a href="http://thesassway.com/advanced/how-to-programtically-go-from-one-color-to-another-in-sass">Huge Giraudel</a></p>
+			<p>Using <a href="https://github.com/bgrins/TinyColor">tinycolor.js</a> and work by <a href="http://thesassway.com/advanced/how-to-programtically-go-from-one-color-to-another-in-sass">Hugo Giraudel</a></p>
 
 		</footer>
 

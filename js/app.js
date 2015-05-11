@@ -20,14 +20,14 @@ angular.module('scfc', [])
     		return {
     			baseColor: '#' + tinycolor(a).toHex(),
     			fnHue : 'adjust-hue',
-    			hue : hue,
+    			hue : hue.toFixed(4),
     			fnSat : fnSat,
-    			sat : sat,
+    			sat : sat.toFixed(4),
     			fnLig : fnLig,
-    			lig: lig
+    			lig: lig.toFixed(4)
     		}
     	},
-    	constructAdjustmentString: function(diff) {
+    	adjustmentStringConstuctor: function(diff) {
     		var t1 = diff.fnHue + '(' + diff.baseColor + ', ' + diff.hue + ')',
     				t2 = diff.fnSat  + '(' + t1 + ', ' + diff.sat + ')',
     				t3 = diff.fnLig  + '(' + t2 + ', ' + diff.lig + ')';
@@ -35,8 +35,10 @@ angular.module('scfc', [])
     		return t3;
     	},
     	adjustmentString: function() {
+    		if ( !( tinycolor($scope.scfc.colorA).isValid() && tinycolor($scope.scfc.colorB).isValid() ) )
+					return 'Please enter two valid colours';
     		var adjustments = $scope.scfc.colorDiff($scope.scfc.colorA, $scope.scfc.colorB);
-    		return $scope.scfc.constructAdjustmentString(adjustments);
+    		return $scope.scfc.adjustmentStringConstuctor(adjustments);
     	}
     };
   }]);
