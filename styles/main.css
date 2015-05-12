@@ -122,7 +122,8 @@ h2 {
         font-family: "Monaco", Courier, monospace;
         display: block;
         width: 100%;
-        text-align: center; }
+        text-align: center;
+        border-radius: 0; }
         .colours-container > div > div input:focus {
           outline: none; }
     @media screen and (max-width: 900px) {
