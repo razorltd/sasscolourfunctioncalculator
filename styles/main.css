@@ -9,7 +9,10 @@ body {
   margin: 0;
   padding: 0;
   color: #303030;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  height: 100vh;
+  min-height: 600px;
+  position: relative; }
 
 a {
   color: #303030; }
@@ -21,55 +24,85 @@ header {
   float: left;
   position: relative;
   height: 100vh;
-  padding: 48px 24px 24px 48px; }
-
-header:before {
-  display: block;
-  content: " ";
-  position: absolute;
-  background: #f15a5d;
-  top: 0;
-  width: 150vw;
-  height: 100%;
-  right: 0;
-  transform: skewX(-7.5deg);
-  z-index: 10; }
+  padding: 48px 24px 24px 48px;
+  min-height: 600px; }
+  header:before {
+    display: block;
+    content: " ";
+    position: absolute;
+    background: #f15a5d;
+    top: 0;
+    width: 150vw;
+    height: 100%;
+    right: 0;
+    transform: skewX(-7.5deg);
+    z-index: 10; }
+    @media screen and (min-height: 605px) {
+      header:before {
+        transform: skewX(-7.5deg) translateX(-2vh); } }
+  @media screen and (max-width: 900px) {
+    header {
+      width: 100%;
+      float: none;
+      background-color: white;
+      height: auto;
+      min-height: 0; }
+      header:before {
+        display: none; } }
+  @media screen and (max-width: 600px) {
+    header {
+      padding: 1em; } }
 
 main {
   width: 60%;
   float: right; }
+  @media screen and (max-width: 900px) {
+    main {
+      width: 100%;
+      float: none; } }
 
 h1 {
-  font-size: 48px;
+  font-size: 3em;
   color: white;
   font-weight: 300;
   margin-top: 0;
   z-index: 20;
   position: relative; }
+  @media screen and (max-width: 900px) {
+    h1 {
+      color: #f15a5d;
+      font-weight: 500; } }
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.5em; } }
 
 h2 {
-  font-size: 22px;
+  font-size: 1.375em;
   font-weight: 300;
   z-index: 20;
   position: relative; }
+  @media screen and (max-width: 600px) {
+    h2 {
+      font-size: 0.875em; } }
 
 .colours-container {
-  overflow: hidden;
-  transform: translateX(3rvh); }
+  overflow: hidden; }
   .colours-container > div {
-    width: 50%;
-    float: left;
-    position: relative;
     background-image: -moz-linear-gradient(45deg, #ccc 25%, transparent 25%), -moz-linear-gradient(-45deg, #ccc 25%, transparent 25%), -moz-linear-gradient(45deg, transparent 75%, #ccc 75%), -moz-linear-gradient(-45deg, transparent 75%, #ccc 75%);
     background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, #ccc), color-stop(0.25, transparent)), -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #ccc), color-stop(0.25, transparent)), -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.75, transparent), color-stop(0.75, #ccc)), -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.75, transparent), color-stop(0.75, #ccc));
-    -moz-background-size: 100px 100px;
-    background-size: 100px 100px;
-    -webkit-background-size: 100px 101px;
+    -moz-background-size: 50px 50px;
+    background-size: 50px 50px;
+    -webkit-background-size: 50px 51px;
     /* override value for shitty webkit */
-    background-position: 0 0, 50px 0, 50px -50px, 0px 50px;
+    background-position: 0 0, 25px 0, 25px -25px, 0px 25px;
+    width: 52%;
+    float: left;
+    position: relative;
     text-align: center;
     padding: 48px 0;
     transform: skewX(-7.5deg); }
+    .colours-container > div:last-child {
+      margin-right: -4%; }
     .colours-container > div > div {
       transform: skewX(7.5deg);
       background: white;
@@ -92,23 +125,63 @@ h2 {
         text-align: center; }
         .colours-container > div > div input:focus {
           outline: none; }
+    @media screen and (max-width: 900px) {
+      .colours-container > div {
+        width: 60%;
+        margin-left: -10%; }
+        .colours-container > div:last-child {
+          margin-right: -10%;
+          margin-left: 0; }
+        .colours-container > div > div {
+          position: relative;
+          left: 5%; }
+        .colours-container > div:last-child > div {
+          left: auto;
+          right: 5%; } }
+    @media screen and (max-width: 600px) {
+      .colours-container > div > div {
+        width: 8em;
+        padding: 0.5em; }
+        .colours-container > div > div label {
+          font-size: 0.7em; }
+        .colours-container > div > div input {
+          font-size: 1em; } }
 
 footer {
   position: absolute;
-  width: 40%;
+  width: 30%;
   bottom: 24px;
   left: 48px;
   z-index: 20; }
-  footer svg {
+  footer .rj-logo {
     max-width: 50%; }
-    footer svg path, footer svg polygon {
+    footer .rj-logo path, footer .rj-logo polygon {
       fill: white; }
+  @media screen and (max-width: 900px) {
+    footer {
+      position: static;
+      width: 100%;
+      background-color: white;
+      padding: 3em; }
+      footer .rj-logo {
+        width: 20em;
+        max-width: 60%; }
+        footer .rj-logo path, footer .rj-logo polygon {
+          fill: #f15a5d; } }
+  @media screen and (max-width: 600px) {
+    footer {
+      padding: 1em;
+      font-size: 0.875em; } }
 
 .result-container {
   transform: skewX(-7.5deg);
   width: 90%;
   margin: 0 auto;
   background: #303030; }
+  @media screen and (max-width: 900px) {
+    .result-container {
+      width: 100%;
+      transform: none; } }
 
 .result {
   font-family: "Monaco", Courier, monospace;
@@ -117,8 +190,12 @@ footer {
   text-align: center;
   width: 100%;
   color: white;
-  font-size: 1em;
-  padding: 1em 0;
+  font-size: 0.875em;
+  padding: 1em 0.8em;
   margin-top: 3em;
   word-wrap: break-word;
   line-height: 2; }
+  @media screen and (max-width: 900px) {
+    .result {
+      transform: none;
+      margin: 0; } }

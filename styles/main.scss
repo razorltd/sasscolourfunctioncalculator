@@ -6,6 +6,24 @@ $gradient-dark: #ccc;
 $gradient-light: transparent;
 $monospace: 'Monaco', Courier, monospace;
 
+@mixin checker {
+	background-image:
+	      -moz-linear-gradient(45deg, $gradient-dark 25%, $gradient-light 25%), 
+	      -moz-linear-gradient(-45deg, $gradient-dark 25%, $gradient-light 25%),
+	      -moz-linear-gradient(45deg, $gradient-light 75%, $gradient-dark 75%),
+	      -moz-linear-gradient(-45deg, $gradient-light 75%, $gradient-dark 75%);
+	background-image:
+	      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, $gradient-dark), color-stop(.25, $gradient-light)), 
+	      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, $gradient-dark), color-stop(.25, $gradient-light)),
+	      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, $gradient-light), color-stop(.75, $gradient-dark)),
+	      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, $gradient-light), color-stop(.75, $gradient-dark));
+
+	-moz-background-size:50px 50px;
+	background-size:50px 50px;
+	-webkit-background-size:50px 51px; /* override value for shitty webkit */
+	background-position:0 0, 25px 0, 25px -25px, 0px 25px;
+}
+
 *, *:before, *:after {
 	box-sizing: border-box;
 }
@@ -18,6 +36,13 @@ body {
 	padding: 0;
 	color: $rj-black;
 	overflow-x: hidden;
+	height: 100vh;
+	min-height: 600px;
+	position: relative;
+
+	@media screen and (max-width: 900px) {
+		// background-color: $rj-red;	
+	}
 }
 
 a {
@@ -34,68 +59,96 @@ header {
 	position: relative;
 	height: 100vh;
 	padding: 48px 24px 24px 48px;
-}
+	min-height: 600px;
 
-header:before {
-	display: block;
-	content: " ";
-	position: absolute;
-	background: $rj-red;
-	top: 0;
-	width: 150vw;
-	height: 100%;
-	right: 0;
-	transform: skewX(-7.5deg);
-	z-index: 10;
+	&:before {
+		display: block;
+		content: " ";
+		position: absolute;
+		background: $rj-red;
+		top: 0;
+		width: 150vw;
+		height: 100%;
+		right: 0;
+		transform: skewX(-7.5deg);
+		z-index: 10;
+
+		@media screen and (min-height: 605px) {
+			transform: skewX(-7.5deg) translateX(-2vh);
+		}
+	}
+
+	@media screen and (max-width: 900px) {
+		width: 100%;
+		float: none;
+		background-color: white;
+		height: auto;
+		min-height: 0;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		padding: 1em;
+	}
 }
 
 main {
 	width: 60%;
 	float: right;
+
+	@media screen and (max-width: 900px) {
+		width: 100%;
+		float: none;
+	}
 }
 
 h1 {
-	font-size: 48px;
+	font-size: 3em;
 	color: white;
 	font-weight: 300;
 	margin-top: 0;
 	z-index: 20;
 	position: relative;
+
+	@media screen and (max-width: 900px) {
+		color: $rj-red;
+		font-weight: 500;
+	}
+
+	@media screen and (max-width: 600px) {
+		font-size: 1.5em;
+	}
 }
 
 h2 {
-	font-size: 22px;
+	font-size: 1.375em;
 	font-weight: 300;
 	z-index: 20;
 	position: relative;
+
+	@media screen and (max-width: 600px) {
+		font-size: 0.875em;
+	}
 }
 
 .colours-container {
 	overflow: hidden;
-	transform: translateX(3rvh);
 
 	> div {
-		width: 50%;
+		@include checker;
+		width: 52%;
 		float: left;
 		position: relative;
-		background-image:
-		      -moz-linear-gradient(45deg, $gradient-dark 25%, $gradient-light 25%), 
-		      -moz-linear-gradient(-45deg, $gradient-dark 25%, $gradient-light 25%),
-		      -moz-linear-gradient(45deg, $gradient-light 75%, $gradient-dark 75%),
-		      -moz-linear-gradient(-45deg, $gradient-light 75%, $gradient-dark 75%);
-		background-image:
-		      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, $gradient-dark), color-stop(.25, $gradient-light)), 
-		      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, $gradient-dark), color-stop(.25, $gradient-light)),
-		      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, $gradient-light), color-stop(.75, $gradient-dark)),
-		      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, $gradient-light), color-stop(.75, $gradient-dark));
-
-		-moz-background-size:100px 100px;
-		background-size:100px 100px;
-		-webkit-background-size:100px 101px; /* override value for shitty webkit */
-		background-position:0 0, 50px 0, 50px -50px, 0px 50px;
 		text-align: center;
 		padding: 48px 0;
 		transform: skewX(-7.5deg);
+
+		&:last-child {
+			margin-right: -4%;
+		}
 
 		> div {
 			transform: skewX(7.5deg);
@@ -126,30 +179,92 @@ h2 {
 				}
 			}
 		}
+
+		@media screen and (max-width: 900px) {
+			width: 60%;
+			margin-left: -10%;
+
+			&:last-child {
+				margin-right: -10%;
+				margin-left: 0;
+			}
+
+			> div {
+				position: relative;
+				left: 5%;
+			}
+
+			&:last-child > div {
+				left: auto;
+				right: 5%;
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			> div {
+				width: 8em;
+				padding: 0.5em;
+
+				label {
+					font-size: 0.7em;
+				}
+
+				input {
+					font-size: 1em;
+				}
+			}
+		}
 	}
 }
 
 footer {
 	position: absolute;
-	width: 40%;
+	width: 30%;
 	bottom: 24px;
 	left: 48px;
 	z-index: 20;
 
-	svg {
+	.rj-logo {
 		max-width: 50%;
 
 		path, polygon {
 			fill: white;
 		}
 	}
+
+	@media screen and (max-width: 900px) {
+		position: static;
+		width: 100%;
+		background-color: white;
+		padding: 3em;
+
+		.rj-logo {
+			width: 20em;
+			max-width: 60%;
+
+			path, polygon {
+				fill: $rj-red;
+			}
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		padding: 1em;
+		font-size: 0.875em;
+	}
 }
+
 
 .result-container {
 	transform: skewX(-7.5deg);
 	width: 90%;
 	margin: 0 auto;
 	background: $rj-black;
+
+	@media screen and (max-width: 900px) {
+		width: 100%;
+		transform: none;
+	}
 }
 
 .result {
@@ -159,9 +274,14 @@ footer {
 	text-align: center;
 	width: 100%;
 	color: white;
-	font-size: 1em;
-	padding: 1em 0;
+	font-size: 0.875em;
+	padding: 1em 0.8em;
 	margin-top: 3em;
 	word-wrap: break-word;
 	line-height: 2;
+
+	@media screen and (max-width: 900px) {
+		transform: none;
+		margin: 0;
+	}
 }
