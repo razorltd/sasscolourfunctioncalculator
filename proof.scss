@@ -1,4 +1,58 @@
-.thing {
-  color: lighten(desaturate(adjust-hue(#bada55, 20), 50.70), 10.20)
-;
+// Two intial colours and a breakdown of their HSL values
+
+$baseColor: #7a21c5;
+$baseHue: hue($baseColor);
+$baseSat: saturation($baseColor);
+$baseLight: lightness($baseColor);
+
+$targetColor: #91c2c5;
+$targetHue: hue($targetColor);
+$targetSat: saturation($targetColor);
+$targetLight: lightness($targetColor);
+
+.baseComponents {
+  hue: $baseHue;
+  saturation: $baseSat;
+  lightness: $baseLight;
+}
+
+.targetComponents {
+  hue: $targetHue;
+  saturation: $targetSat;
+  lightness: $targetLight;
+}
+
+
+// Work out the adjustments
+
+$hueAdjustment: $targetHue - $baseHue;
+$satAdjustment: $baseSat - $targetSat;
+$lightAdjustment: $targetLight - $baseLight;
+
+.adjustments {
+  hueAdjust: $hueAdjustment;
+  satAdjust: $satAdjustment;
+  lightAdjust: $lightAdjustment;
+}
+
+
+// Apply the adjustments to another instance of the base color
+
+$newColor: #7a21c5;  // Should be same as $baseColor - not sure how variables persist in sass so redeclaring manually
+$newColor: adjust-hue($newColor, $hueAdjustment);
+$newColor: desaturate($newColor, $satAdjustment);
+$newColor: lighten($newColor, $lightAdjustment);
+
+.newcolor {
+  color: $newColor;
+}
+
+$newHue: hue($newColor);
+$newSat: saturation($newColor);
+$newLight: lightness($newColor);
+
+.newColorComponents {
+  hue: $newHue;
+  sat: $newSat;
+  light: $newLight;
 }
