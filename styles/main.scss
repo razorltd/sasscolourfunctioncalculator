@@ -85,6 +85,7 @@ header {
       background-color: $rj-navy;
       height: auto;
       min-height: 0;
+      text-align: center;
 
       &:before {
          display: none;
@@ -248,14 +249,11 @@ footer {
       position: static;
       width: 100%;
       padding: 3em;
+      text-align: center;
 
       .rj-logo {
          width: 20em;
          max-width: 60%;
-
-         path, polygon {
-            fill: $rj-red;
-         }
       }
    }
 
