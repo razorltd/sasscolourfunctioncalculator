@@ -42,7 +42,7 @@ body {
    position: relative;
 
    @media screen and (max-width: 900px) {
-      // background-color: $rj-red; 
+      background-color: $rj-navy; 
    }
 }
 
@@ -82,7 +82,7 @@ header {
    @media screen and (max-width: 900px) {
       width: 100%;
       float: none;
-      background-color: white;
+      background-color: $rj-navy;
       height: auto;
       min-height: 0;
 
@@ -247,7 +247,6 @@ footer {
    @media screen and (max-width: 900px) {
       position: static;
       width: 100%;
-      background-color: white;
       padding: 3em;
 
       .rj-logo {

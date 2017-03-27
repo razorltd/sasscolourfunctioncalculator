@@ -13,6 +13,9 @@ body {
   height: 100vh;
   min-height: 600px;
   position: relative; }
+  @media screen and (max-width: 900px) {
+    body {
+      background-color: #271e3b; } }
 
 a {
   color: #303030; }
@@ -44,7 +47,7 @@ header {
     header {
       width: 100%;
       float: none;
-      background-color: white;
+      background-color: #271e3b;
       height: auto;
       min-height: 0; }
       header:before {
@@ -168,7 +171,6 @@ footer {
     footer {
       position: static;
       width: 100%;
-      background-color: white;
       padding: 3em; }
       footer .rj-logo {
         width: 20em;
