@@ -28,7 +28,7 @@ angular.module('scfc', [])
                 }
             },
             adjustmentStringConstuctor: function(diff) {
-                var addToString = function(diffVal, diffFn, transformString) {
+                var addTransformToString = function(diffVal, diffFn, transformString) {
                     if (diffVal != 0) {
                         return diffFn + '(' + transformString + ', ' + diffVal + ')';
                     } else {
@@ -37,9 +37,14 @@ angular.module('scfc', [])
                 }
 
                 var t = diff.baseColor;
-                t = addToString(diff.hue, diff.fnHue, t);
-                t = addToString(diff.sat, diff.fnSat, t);
-                t = addToString(diff.lig, diff.fnLig, t);
+
+                t = addTransformToString(diff.hue, diff.fnHue, t);
+                t = addTransformToString(diff.sat, diff.fnSat, t);
+                t = addTransformToString(diff.lig, diff.fnLig, t);
+
+                if (t === diff.baseColor) {
+                    return "Colours are too similar, pal!";
+                }
 
                 return t;
             },
