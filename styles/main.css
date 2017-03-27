@@ -30,7 +30,7 @@ header {
     display: block;
     content: " ";
     position: absolute;
-    background: #f15a5d;
+    background: #271e3b;
     top: 0;
     width: 150vw;
     height: 100%;
@@ -63,7 +63,7 @@ main {
 
 h1 {
   font-size: 3em;
-  color: white;
+  color: #f15a5d;
   font-weight: 300;
   margin-top: 0;
   z-index: 20;
@@ -80,7 +80,8 @@ h2 {
   font-size: 1.375em;
   font-weight: 300;
   z-index: 20;
-  position: relative; }
+  position: relative;
+  color: white; }
   @media screen and (max-width: 600px) {
     h2 {
       font-size: 0.875em; } }
@@ -153,11 +154,16 @@ footer {
   width: 30%;
   bottom: 24px;
   left: 48px;
-  z-index: 20; }
+  z-index: 20;
+  color: white; }
   footer .rj-logo {
     max-width: 50%; }
     footer .rj-logo path, footer .rj-logo polygon {
       fill: white; }
+    footer .rj-logo #logotype path {
+      fill: #f15a5d; }
+  footer a {
+    color: white; }
   @media screen and (max-width: 900px) {
     footer {
       position: static;
